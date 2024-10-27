@@ -1,0 +1,44 @@
+bazel_dep(name = "rules_rust", version = "0.52.2")
+
+rust = use_extension("@rules_rust//rust:extensions.bzl", "rust")
+rust.toolchain(
+    edition = "2021",  # Specify the edition
+    versions = ["1.81.0"],  # Specify Rust 1.81.0
+)
+use_repo(rust, "rust_toolchains")
+
+register_toolchains("@rust_toolchains//:all")
+
+ch_crate = use_extension("@rules_rust//crate_universe:extension.bzl", "crate")  # New extension
+ch_crate.from_cargo(
+    name = "cloud_hypervisor",
+    cargo_lockfile = "//:Cargo.lock",
+    generate_binaries = True,
+    manifests = [
+        "//:Cargo.toml",
+        "//:api_client/Cargo.toml",
+        "//:arch/Cargo.toml",
+        "//:block/Cargo.toml",
+        "//:devices/Cargo.toml",
+        "//:event_monitor/Cargo.toml",
+        "//:hypervisor/Cargo.toml",
+        "//:net_gen/Cargo.toml",
+        "//:net_util/Cargo.toml",
+        "//:option_parser/Cargo.toml",
+        "//:pci/Cargo.toml",
+        "//:performance-metrics/Cargo.toml",
+        "//:rate_limiter/Cargo.toml",
+        "//:serial_buffer/Cargo.toml",
+        "//:test_infra/Cargo.toml",
+        "//:tracer/Cargo.toml",
+        "//:vhost_user_block/Cargo.toml",
+        "//:vhost_user_net/Cargo.toml",
+        "//:virtio-devices/Cargo.toml",
+        "//:vm-allocator/Cargo.toml",
+        "//:vm-device/Cargo.toml",
+        "//:vm-migration/Cargo.toml",
+        "//:vm-virtio/Cargo.toml",
+        "//:vmm/Cargo.toml",
+    ],
+)
+use_repo(ch_crate, "cloud_hypervisor")
