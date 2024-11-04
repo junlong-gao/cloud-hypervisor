@@ -14,4 +14,8 @@ rust_library(
         "//third_party/cloud_hypervisor/src/rate_limiter",
         "//third_party/cloud_hypervisor/src/vm-virtio",
     ],
+    target_compatible_with = select({
+        "@platforms//os:macos": ["@platforms//:incompatible"],
+        "//conditions:default": [],
+    }),
 )

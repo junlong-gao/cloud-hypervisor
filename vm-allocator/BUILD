@@ -12,4 +12,8 @@ rust_library(
     deps = all_crate_deps(normal = True) + [
         "//third_party/cloud_hypervisor/src/arch",
     ],
+    target_compatible_with = select({
+        "@platforms//os:macos": ["@platforms//:incompatible"],
+        "//conditions:default": [],
+    }),
 )

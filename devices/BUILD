@@ -19,4 +19,8 @@ rust_library(
         "//third_party/cloud_hypervisor/src/vm-device",
         "//third_party/cloud_hypervisor/src/vm-migration",
     ],
+    target_compatible_with = select({
+        "@platforms//os:macos": ["@platforms//:incompatible"],
+        "//conditions:default": [],
+    }),
 )

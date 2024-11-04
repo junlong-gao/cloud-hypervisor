@@ -36,6 +36,10 @@ rust_library(
         "//third_party/cloud_hypervisor/src/tracer",
         "//third_party/cloud_hypervisor/src/vmm",
     ],
+    target_compatible_with = select({
+        "@platforms//os:macos": ["@platforms//:incompatible"],
+        "//conditions:default": [],
+    }),
 )
 
 rust_binary(
@@ -69,4 +73,8 @@ rust_binary(
         "//third_party/cloud_hypervisor/src/tracer",
         "//third_party/cloud_hypervisor/src/vmm",
     ],
+    target_compatible_with = select({
+        "@platforms//os:macos": ["@platforms//:incompatible"],
+        "//conditions:default": [],
+    }),
 )

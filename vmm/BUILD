@@ -28,4 +28,8 @@ rust_library(
         "//third_party/cloud_hypervisor/src/vm-migration",
         "//third_party/cloud_hypervisor/src/vm-virtio",
     ],
+    target_compatible_with = select({
+        "@platforms//os:macos": ["@platforms//:incompatible"],
+        "//conditions:default": [],
+    }),
 )
