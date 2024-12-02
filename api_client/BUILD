@@ -14,11 +14,11 @@ rust_library(
     proc_macro_deps = all_crate_deps(
         proc_macro = True,
     ),
-    visibility = ["//visibility:public"],  # Add this if not already present
-    deps = all_crate_deps(normal = True) + [
-    ],
     target_compatible_with = select({
         "@platforms//os:macos": ["@platforms//:incompatible"],
         "//conditions:default": [],
     }),
+    visibility = ["//visibility:public"],  # Add this if not already present
+    deps = all_crate_deps(normal = True) + [
+    ],
 )

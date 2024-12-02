@@ -25,6 +25,10 @@ rust_library(
         "-C",
         "codegen-units=1",
     ],
+    target_compatible_with = select({
+        "@platforms//os:macos": ["@platforms//:incompatible"],
+        "//conditions:default": [],
+    }),
     visibility = ["//visibility:public"],  # Add this if not already present
     deps = all_crate_deps(normal = True) + [
         "//third_party/cloud_hypervisor/src/api_client",
@@ -36,10 +40,6 @@ rust_library(
         "//third_party/cloud_hypervisor/src/tracer",
         "//third_party/cloud_hypervisor/src/vmm",
     ],
-    target_compatible_with = select({
-        "@platforms//os:macos": ["@platforms//:incompatible"],
-        "//conditions:default": [],
-    }),
 )
 
 rust_binary(
@@ -61,6 +61,10 @@ rust_binary(
         "-C",
         "codegen-units=1",
     ],
+    target_compatible_with = select({
+        "@platforms//os:macos": ["@platforms//:incompatible"],
+        "//conditions:default": [],
+    }),
     visibility = ["//visibility:public"],  # Add this if not already present
     deps = all_crate_deps(normal = True) + [
         ":lib",
@@ -73,8 +77,4 @@ rust_binary(
         "//third_party/cloud_hypervisor/src/tracer",
         "//third_party/cloud_hypervisor/src/vmm",
     ],
-    target_compatible_with = select({
-        "@platforms//os:macos": ["@platforms//:incompatible"],
-        "//conditions:default": [],
-    }),
 )
