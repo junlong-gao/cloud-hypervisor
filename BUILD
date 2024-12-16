@@ -1,4 +1,4 @@
-load("@cloud_hypervisor//:defs.bzl", "aliases", "all_crate_deps")
+load("@root//:defs.bzl", "aliases", "all_crate_deps")
 load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_library")
 
 exports_files(
@@ -31,14 +31,14 @@ rust_library(
     }),
     visibility = ["//visibility:public"],  # Add this if not already present
     deps = all_crate_deps(normal = True) + [
-        "//third_party/cloud_hypervisor/src/api_client",
-        "//third_party/cloud_hypervisor/src/event_monitor",
-        "//third_party/cloud_hypervisor/src/hypervisor",
-        "//third_party/cloud_hypervisor/src/net_util",
-        "//third_party/cloud_hypervisor/src/option_parser",
-        "//third_party/cloud_hypervisor/src/tpm",
-        "//third_party/cloud_hypervisor/src/tracer",
-        "//third_party/cloud_hypervisor/src/vmm",
+        "//api_client",
+        "//event_monitor",
+        "//hypervisor",
+        "//net_util",
+        "//option_parser",
+        "//tpm",
+        "//tracer",
+        "//vmm",
     ],
 )
 
@@ -68,13 +68,13 @@ rust_binary(
     visibility = ["//visibility:public"],  # Add this if not already present
     deps = all_crate_deps(normal = True) + [
         ":lib",
-        "//third_party/cloud_hypervisor/src/api_client",
-        "//third_party/cloud_hypervisor/src/event_monitor",
-        "//third_party/cloud_hypervisor/src/hypervisor",
-        "//third_party/cloud_hypervisor/src/net_util",
-        "//third_party/cloud_hypervisor/src/option_parser",
-        "//third_party/cloud_hypervisor/src/tpm",
-        "//third_party/cloud_hypervisor/src/tracer",
-        "//third_party/cloud_hypervisor/src/vmm",
+        "//api_client",
+        "//event_monitor",
+        "//hypervisor",
+        "//net_util",
+        "//option_parser",
+        "//tpm",
+        "//tracer",
+        "//vmm",
     ],
 )

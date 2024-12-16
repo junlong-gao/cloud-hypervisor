@@ -5,7 +5,7 @@ exports_files(
 )
 
 # TODO: do not use me: openssl does not work.
-# load("@cloud_hypervisor//:defs.bzl", "aliases", "all_crate_deps")
+# load("@root//:defs.bzl", "aliases", "all_crate_deps")
 # load("@rules_rust//rust:defs.bzl", "rust_library")
 #
 # rust_library(

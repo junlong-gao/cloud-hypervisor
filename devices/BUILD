@@ -1,4 +1,4 @@
-load("@cloud_hypervisor//:defs.bzl", "aliases", "all_crate_deps")
+load("@root//:defs.bzl", "aliases", "all_crate_deps")
 load("@rules_rust//rust:defs.bzl", "rust_library")
 
 rust_library(
@@ -14,13 +14,13 @@ rust_library(
     }),
     visibility = ["//visibility:public"],  # Add this if not already present
     deps = all_crate_deps(normal = True) + [
-        "//third_party/cloud_hypervisor/src/arch",
-        "//third_party/cloud_hypervisor/src/event_monitor",
-        "//third_party/cloud_hypervisor/src/hypervisor",
-        "//third_party/cloud_hypervisor/src/pci",
-        "//third_party/cloud_hypervisor/src/tpm",
-        "//third_party/cloud_hypervisor/src/vm-allocator",
-        "//third_party/cloud_hypervisor/src/vm-device",
-        "//third_party/cloud_hypervisor/src/vm-migration",
+        "//arch",
+        "//event_monitor",
+        "//hypervisor",
+        "//pci",
+        "//tpm",
+        "//vm-allocator",
+        "//vm-device",
+        "//vm-migration",
     ],
 )

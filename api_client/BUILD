@@ -1,4 +1,4 @@
-load("@cloud_hypervisor//:defs.bzl", "aliases", "all_crate_deps")
+load("@root//:defs.bzl", "aliases", "all_crate_deps")
 load("@rules_rust//rust:defs.bzl", "rust_library")
 
 exports_files(
