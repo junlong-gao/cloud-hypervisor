@@ -1,11 +1,18 @@
-/build
-/.cargo
-/target
-**/*.rs.bk
-**/Cargo.lock
-**/rusty-tags.vi
-/rpm/SOURCES
-/.vscode
-/vendor
+**.DS_Store
+**/.vagrant
 
 bazel-*
+.cache
+
+.venv
+.terraform.lock.hcl
+terraform.tfstate
+
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+rust-project.json
+MODULE.bazel.lock
+.vscode/settings.json
+
+compile_commands.json

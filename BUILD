@@ -1,3 +1,4 @@
+load("@buildifier_prebuilt//:rules.bzl", "buildifier")
 load("@root//:defs.bzl", "aliases", "all_crate_deps")
 load("@rules_rust//rust:defs.bzl", "rust_binary", "rust_library")
 
@@ -77,4 +78,14 @@ rust_binary(
         "//tracer",
         "//vmm",
     ],
+)
+
+# Format alias for bazel code
+buildifier(
+    name = "build.fix",
+    exclude_patterns = [
+        "./.git/*",
+    ],
+    lint_mode = "fix",
+    mode = "fix",
 )
